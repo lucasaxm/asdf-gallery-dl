@@ -34,8 +34,8 @@ download_release() {
   version="$1"
   filename="$2"
 
-  if ! [ "$(uname -s)" = "Linux" ] && [ "$(uname -m)" = "x86_64" ]; then
-    fail "This plugin only supports installing gallery-dl on Linux amd64"
+  if ! { [ "$(uname -s)" = "Linux" ] || [ "$(uname -s)" = "Darwin" ]; } && [ "$(uname -m)" = "x86_64" ]; then
+    fail "This plugin only supports installing gallery-dl on Linux and macOS with amd64 architecture"
   fi
 
   local url
